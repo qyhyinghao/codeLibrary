@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    {{info}}
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('myController',['$scope',function($scope){
+            $scope.info = '这是发现音乐';            
+            setTimeout(function(){
+                $scope.info = 'xxx';
+                $scope.$apply();
+                console.log(111);
+            },2000)
+
+            $timeout(function(){
+                $scope.info = 'xxx';
+                console.log(111);
+            },2000)
+        }]);
+    </script>
+</body>
+</html>
